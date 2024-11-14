@@ -1,7 +1,11 @@
 name: Sync Fork
 
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/sync-fork.yml'  
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨 2 点运行
   repository_dispatch:
     types: [sync]
 
